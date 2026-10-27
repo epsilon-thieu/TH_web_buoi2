@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý sản phẩm</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 820px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+    h1 { font-size: 1.5rem; }
+    form { display: grid; grid-template-columns: 2fr 1fr 1fr auto auto; gap: .5rem; margin-bottom: 1rem; }
+    input, button { padding: .5rem; font-size: 1rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-bottom: 1px solid #ddd; padding: .5rem; text-align: left; }
+    td.actions { white-space: nowrap; }
+    #message { min-height: 1.5rem; margin-bottom: .5rem; }
+    .error { color: #b00020; }
+    .ok { color: #1b7f3b; }
+  </style>
+</head>
+<body>
+  <h1>Quản lý sản phẩm</h1>
+  <div id="message"></div>
+
+  <form id="product-form">
+    <input type="hidden" id="product-id">
+    <input id="name" placeholder="Tên sản phẩm" required>
+    <input id="price" type="number" min="0" step="0.01" placeholder="Giá" required>
+    <input id="quantity" type="number" min="0" step="1" placeholder="Số lượng" required>
+    <button type="submit" id="submit-btn">Thêm</button>
+    <button type="button" id="cancel-btn" hidden>Hủy</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr><th>Id</th><th>Tên</th><th>Giá</th><th>Số lượng</th><th></th></tr>
+    </thead>
+    <tbody id="product-list"></tbody>
+  </table>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
